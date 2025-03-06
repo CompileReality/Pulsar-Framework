@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component inherit-compiler-output="true" inheritJdk="true">
+	<output-test url="file://$MODULE_DIR$/out/test/GameEngine"/>
+	<exclude-output/>
+	<contentEntry url="file://$MODULE_DIR$"/>
+	<levels>
+		<level name="bluecove-2.1.0" value="project"/>
+		<level name="gson-2.12.1" value="project"/>
+		<level name="error_prone_annotations-2.36.0" value="project"/>
+	</levels>
+</component>

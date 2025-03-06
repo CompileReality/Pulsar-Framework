@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eclipse-userlibraries>
+  <library name="error_prone_annotations-2.36.0">
+    <archive path="C:/Users/Prathmesh Kumbhar/Desktop/error_prone_annotations-2.36.0.jar" />
+  </library>
+  <library name="bluecove-2.1.0">
+    <archive path="C:/Users/Prathmesh Kumbhar/Desktop/bluecove-2.1.0.jar" />
+  </library>
+  <library name="gson-2.12.1">
+    <archive path="C:/Users/Prathmesh Kumbhar/Desktop/gson-2.12.1.jar" />
+  </library>
+</eclipse-userlibraries>
+
