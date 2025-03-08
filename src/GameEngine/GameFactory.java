@@ -118,6 +118,7 @@ public class GameFactory{
 
     public void setTitle(String title) {
         Title = title;
+        window.setTitle(title);
     }
 
     class loop implements ActionListener{
