@@ -1,7 +1,7 @@
-# Pulsar Library
+# Pulsar Framework
 
-This library is framework for developing 2d games in java very efficiently and easily. This library have many features like advanced debug line system, Multiplayer, Customizable UI.
-This library is made fully scratch from swing framework to advance Game systems including Animations, Efficient and Fast Game Loop, Debuging System.
+This framework helps developing 2d games in java very efficiently and easily. This Framework have many features like advanced debug line system, Multiplayer, Customizable UI.
+This Framework is made fully scratch using swing framework having advance Game systems including Animations, Efficient and Fast Game Loop, Debuging System.
 
 ---
 ## Features
@@ -15,3 +15,11 @@ This library is made fully scratch from swing framework to advance Game systems 
 8. Supports basic components of Swing Framework
 
 ---
+
+# Docs
+Reading Documentation is neccesary before directly implementing and testing. Because there's lot of settings which can cause trouble later.
+The Documentation is provided in [Docs](Docs) folder.
+
+---
+
+# Installation
