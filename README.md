@@ -18,7 +18,7 @@ This Framework is made fully scratch using swing framework having advance Game s
 
 # Docs
 Reading Documentation is neccesary before directly implementing and testing. Because there's lot of settings which can cause trouble later.
-The Documentation is provided in [Docs](Docs) folder.
+The Documentation is started from here [Getting Started](GettingStarted).
 
 ---
 
