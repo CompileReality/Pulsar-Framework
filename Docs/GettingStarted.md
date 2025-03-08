@@ -20,7 +20,7 @@ The GameEngine folder under src folder contains :
 ## 1.GameFactory
 
 GameFactory class contains main logic and code to start the game. GameFactory has instance of JFrame, GameProperty, and many more. The **GameProperty** describes how game works or defines the essiential Objects neccesary to create and run the game. GameProperty is a class which contains only variables.
-```java
+``` java
     public int delay;
     public boolean enableRootAccess;
     public String ResourceFolder;
@@ -28,14 +28,14 @@ GameFactory class contains main logic and code to start the game. GameFactory ha
 ```
 
 This variables tells the GameFactory to how to run/execute the game. Variable `delay` tells how much delay should be there between two frames.
-> **Note:** The `delay` is delay between the time when one Frame is called and the time when next Frame is called. All execution takes place in this time only. The Timer triggers repeatedly after delay in milliseconds.
+> **Note:** The `delay` is delay between the time when one Frame is called and the time when next Frame is called. All execution takes place in this time only. The Timer triggers repeatedly after this delay in milliseconds.
 
 The Variable `enableRootAccess` tells GameFactory whether to allow access to Root window i.e. JFrame. 
 The Variable `ResourceFolder` is path to resource folder which helps to store game assets, Debug log files, Animation files.
 The Variable `gameActions` is instance of class which implement GameActions interface. <br>
 This **GameActions** interface only contains three method.
 
-```java
+``` java
 public interface GameActions {
     void update();
 
@@ -54,3 +54,77 @@ Whereas `OnPause()` is called when game is on pause.
 
 Now we have understand `GameActions`,`GameProperty`.let's now focus on initializing the game.
 Initializing the `GameFactory` intializes the JFrame and makes it visible.
+To create the instance, we will create object of `GameFactory`.
+
+``` java
+    public GameFactory(int height, int width,String Title, GameProperty gameProperty)
+```
+
+GameFactory has only one constructor. This constructor has 4 parameters. `height`,`width` sets the height and width of JFrame for game.The `Title` sets the title of JFrame for game. The `gameProperty` set properties to game. The `Title` can be changed later using :
+``` java
+    public void setTitle(String title)
+```
+To retrive the titlle we can use :
+``` java
+    public String getTitle()
+```
+After creating the instance the JFrame will be visible and starts the main loop logic for execution of game.
+Now the every frame the `update()` is called except the First Frame.
+To change the status of game i.e. to pause or resume the game, we use `status` variable for describing the status of game.This `status` variable is integer.
+There are three types of Status defining variables :
+``` java
+    public static final int RUNNING = 0;
+    public static final int PAUSED = 1;
+    public static final int EXCEPTIONAL_PAUSE = 2;
+```
+By default the status is set `RUNNING`. `RUNNING` sets game to run, `PAUSED` sets game to hold by stoping the timer and calls `OnPause()`, whereas `EXCEPTIONAL_PAUSE` sets game to hold but doesn't calls `OnPause()`.
+To exit the game or close the game, we use :
+``` java
+    public void destroy()
+```
+By calling this method, the games will end by disposing all the nested JFrame then disposing itself. 
+Now to access the root window that is main JFrame : 
+``` java
+    public JFrame getRootWindow()
+```
+> **Note:** This will only work if `enableRootAccess` is true
+
+Now we can access the root window and change the setting accordingly.
+To add Game Objects to window or game we use :
+``` java
+    public void AddGraphicalObject(GraphicalObject obj)
+```
+Here, `GraphicalObject` is class which extends JPanel, This class can perform Animation, render, event handling.
+We will learn about this class later.
+If want to run new `GameActions` but don't want to dispose the main JFrame. we can use :
+``` java
+    public void ChangeActions(GameActions actions)
+```
+This will change the GameActions without interrupting the timer and the main JFrame. After changing the GameActions, the next frame will be treated as First frame and calls `start()` then continuous by calling `update()` when timer triggers.
+There's another class named `DebugLine`. This is advanced Debug system having features like Inter-class communication, debugging, GUI based interaction. To initialize this class, we have to first call this method :
+``` java
+ public void RegisterDebugLine()
+```
+This method creates an instance of `DebugLine` by passing neccessary parameters.
+> **Note:** Don't try to create `DebugLine` instance manually.This can cause malfunctioning of DebugLine GUI.
+
+After calling that method, to retrive the instance of `DebugLine` we will use :
+```java
+    public DebugLine getDebugLine()
+```
+There's another method in GameFactory :
+```java
+    public JFrame CreateNewWindow(int ID,int width, int Height, String Title, boolean RegisterForUpdate, boolean StopOnGamePause, Function update, GraphicalObject parentObject)
+```
+This method creates sub window which can be used as Dialog box, Settings panel. The Variable `ID` is used assign a seperate ID for each Window, `Title` sets the title of JFrame,`RegisterForUpdate` if set true then every frame the update method is called on Function passed as argument i.e. `update`, `StopOnGamePause` tells whether to stop calling `update` if game is paused, `parentObject` is GraphicalObject instance which will be displayed on JFrame. After all of this setting up the new JFrame is returned.
+If `RegisterForUpdate` is false then the variables `StopOnGamePause` and `update()` will be ignored by GameFactory.
+To dispose the specific sub window safely, we use :
+``` java
+    public void DisposeWindow(int ID)
+```
+This closes the sub window having ID equal to `ID`. This ensure that this window will not recive any Updates further.
+
+---
+
+# 2.DebugLine
+[DebugLine](DebugLine.md)
