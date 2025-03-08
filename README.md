@@ -1,6 +1,6 @@
 # Pulsar Framework
 
-This framework helps developing 2d games in java very efficiently and easily. This Framework have many features like advanced debug line system, Multiplayer, Customizable UI.
+This Framework helps developing 2d games in java very efficiently and easily. This Framework have many features like advanced debug line system, Multiplayer, Customizable UI.
 This Framework is made fully scratch using swing framework having advance Game systems including Animations, Efficient and Fast Game Loop, Debuging System.
 
 ---
@@ -23,3 +23,7 @@ The Documentation is provided in [Docs](Docs) folder.
 ---
 
 # Installation
+Installing this framework is simple. Just download these files add Add into your project.
+> Don't forgot to add dependencies located in [lib](lib) folder.
+
+---
