@@ -127,4 +127,4 @@ This closes the sub window having ID equal to `ID`. This ensure that this window
 ---
 
 # 2.DebugLine
-[DebugLine](DebugLine.md)
+Documentation for `DebugLine` is provided there [DebugLine](DebugLine.md).
